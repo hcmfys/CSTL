@@ -53,14 +53,12 @@ freely, subject to the following restrictions:
 #include "c_memory.h"
 
 
-void * __c_malloc(size_t s)
-{
-	return (void *)(malloc(s));
+void *__c_malloc(size_t s) {
+    return (void *) (malloc(s));
 }
 
-void __c_free(void * p)
-{
-	free(p);
+void __c_free(void *p) {
+    free(p);
 }
 
 

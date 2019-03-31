@@ -53,94 +53,80 @@ freely, subject to the following restrictions:
 #include "c_function.h"
 #include "c_pair.h"
 
-static c_bool _c_unary_negate_impl(c_unary_predicate * thiz, value_type val)
-{
-	return !((UNARY_PREDICATE)(thiz->_l))(val);
+static c_bool _c_unary_negate_impl(c_unary_predicate *thiz, value_type val) {
+    return !((UNARY_PREDICATE) (thiz->_l))(val);
 }
 
-c_unary_predicate c_unary_negate(UNARY_PREDICATE unary_pred)
-{
-	c_unary_predicate up;
-	up.O = _c_unary_negate_impl;
-	up._l = unary_pred;
-	return up;
+c_unary_predicate c_unary_negate(UNARY_PREDICATE unary_pred) {
+    c_unary_predicate up;
+    up.O = _c_unary_negate_impl;
+    up._l = unary_pred;
+    return up;
 }
 
-static c_bool _c_binary_negate_impl(c_binary_predicate * thiz, value_type val1, value_type val2)
-{
-	return !((BINARY_PREDICATE)(thiz->_l))(val1, val2);    
+static c_bool _c_binary_negate_impl(c_binary_predicate *thiz, value_type val1, value_type val2) {
+    return !((BINARY_PREDICATE) (thiz->_l))(val1, val2);
 }
 
-c_binary_predicate c_binary_negate(BINARY_PREDICATE binary_pred)
-{
-	c_binary_predicate bp;
-	bp.O = _c_binary_negate_impl;
-	bp._l = binary_pred;
-	return bp;
+c_binary_predicate c_binary_negate(BINARY_PREDICATE binary_pred) {
+    c_binary_predicate bp;
+    bp.O = _c_binary_negate_impl;
+    bp._l = binary_pred;
+    return bp;
 }
 
-static value_type _c_identity_impl(c_unary_function * thiz, value_type val)
-{
-	return val;	
+static value_type _c_identity_impl(c_unary_function *thiz, value_type val) {
+    return val;
 }
 
-c_unary_function c_identity()
-{
-	c_unary_function uf;
-	uf.O = _c_identity_impl;
-	uf._l = NULL;
-	return uf;
+c_unary_function c_identity() {
+    c_unary_function uf;
+    uf.O = _c_identity_impl;
+    uf._l = NULL;
+    return uf;
 }
 
-static value_type _c_select1st_impl(c_unary_function * thiz, value_type val)
-{
-	return ((c_ppair)(val))->first;
+static value_type _c_select1st_impl(c_unary_function *thiz, value_type val) {
+    return ((c_ppair) (val))->first;
 }
 
-c_unary_function c_select1st()
-{
-	c_unary_function uf;
-	uf.O = _c_select1st_impl;
-	uf._l = NULL;
-	return uf;    
+c_unary_function c_select1st() {
+    c_unary_function uf;
+    uf.O = _c_select1st_impl;
+    uf._l = NULL;
+    return uf;
 }
 
-static value_type _c_select1stptr_impl(c_unary_function * thiz, value_type val)
-{
-	return (value_type)(&((c_ppair)(val))->first);
+static value_type _c_select1stptr_impl(c_unary_function *thiz, value_type val) {
+    return (value_type) (&((c_ppair) (val))->first);
 }
 
-c_unary_function c_select1stptr()
-{
-	c_unary_function uf;
-	uf.O = _c_select1stptr_impl;
-	uf._l = NULL;
-	return uf;
+c_unary_function c_select1stptr() {
+    c_unary_function uf;
+    uf.O = _c_select1stptr_impl;
+    uf._l = NULL;
+    return uf;
 }
 
-static c_bool _c_unary_adapt_impl(c_unary_predicate * thiz, value_type val)
-{
-	return ((UNARY_PREDICATE)(thiz->_l))(val);
+static c_bool _c_unary_adapt_impl(c_unary_predicate *thiz, value_type val) {
+    return ((UNARY_PREDICATE) (thiz->_l))(val);
 }
 
-c_unary_predicate c_unary_adapt(UNARY_PREDICATE unary_pred)
-{
-	c_unary_predicate up;
-	up.O = _c_unary_adapt_impl;
-	up._l = unary_pred;
-	return up;	
+c_unary_predicate c_unary_adapt(UNARY_PREDICATE unary_pred) {
+    c_unary_predicate up;
+    up.O = _c_unary_adapt_impl;
+    up._l = unary_pred;
+    return up;
 }
 
-static c_bool _c_binary_adapt_impl(c_binary_predicate * thiz, value_type val1, value_type val2)
-{
-	return ((BINARY_PREDICATE)(thiz->_l))(val1, val2);    
+static c_bool _c_binary_adapt_impl(c_binary_predicate *thiz, value_type val1, value_type val2) {
+    return ((BINARY_PREDICATE) (thiz->_l))(val1, val2);
 }
 
-c_binary_predicate c_binary_adapt(BINARY_PREDICATE binary_pred)
-{
-	c_binary_predicate bp;
-	bp.O = _c_binary_adapt_impl;
-	bp._l = binary_pred;
-	return bp;
+c_binary_predicate c_binary_adapt(BINARY_PREDICATE binary_pred) {
+    c_binary_predicate bp;
+    bp.O = _c_binary_adapt_impl;
+    bp._l = binary_pred;
+    return bp;
 }
 

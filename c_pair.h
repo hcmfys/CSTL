@@ -60,52 +60,50 @@ NOTE: This is an internal header file, You should not attempt to use it directly
 #include "c_iterator.h"
 #include "c_memory.h"
 
-#define c_pair      		_c_pair
-#define c_ppair     		_c_ppair
-#define c_iter_bool_pair	_c_iter_bool_pair
-#define c_piter_bool_pair	_c_piter_bool_pair
-#define c_iter_iter_pair	_c_iter_iter_pair
-#define c_piter_iter_pair	_c_piter_iter_pair
-#define c_make_pair 		_c_make_pair
-#define c_make_iter_bool_pair	_c_make_iter_bool_pair
-#define c_make_iter_iter_pair	_c_make_iter_iter_pair
+#define c_pair            _c_pair
+#define c_ppair            _c_ppair
+#define c_iter_bool_pair    _c_iter_bool_pair
+#define c_piter_bool_pair    _c_piter_bool_pair
+#define c_iter_iter_pair    _c_iter_iter_pair
+#define c_piter_iter_pair    _c_piter_iter_pair
+#define c_make_pair        _c_make_pair
+#define c_make_iter_bool_pair    _c_make_iter_bool_pair
+#define c_make_iter_iter_pair    _c_make_iter_iter_pair
 
 typedef value_type first_type;
 typedef value_type second_type;
 
-typedef struct c_pair c_pair, * c_ppair;
+typedef struct c_pair c_pair, *c_ppair;
+
 typedef int (*PAIR_COMPARER)(c_ppair, c_ppair);
 
-struct c_pair
-{    
-	first_type first;
-	second_type second;
+struct c_pair {
+    first_type first;
+    second_type second;
 };
 
 
 typedef struct c_iter_bool_pair c_iter_bool_pair, c_piter_bool_pair;
 
-struct c_iter_bool_pair
-{
-	c_iterator first;
-	c_bool second;
+struct c_iter_bool_pair {
+    c_iterator first;
+    c_bool second;
 };
 
 
 typedef struct c_iter_iter_pair c_iter_iter_pair, c_piter_iter_pair;
 
-struct c_iter_iter_pair
-{
-	c_iterator first;
-	c_iterator second;
+struct c_iter_iter_pair {
+    c_iterator first;
+    c_iterator second;
 };
 
 
 c_pair c_make_pair(const value_type x, const value_type y);
+
 c_iter_bool_pair c_make_iter_bool_pair(c_iterator x, c_bool y);
+
 c_iter_iter_pair c_make_iter_iter_pair(c_iterator x, c_iterator y);
-
-
 
 
 #endif /* _C_PAIR_H */

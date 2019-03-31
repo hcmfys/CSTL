@@ -59,7 +59,8 @@ NOTE: This is an internal header file, You should not attempt to use it directly
 
 #include "c_def.h"
 
-void * __c_malloc(size_t s);
-void __c_free(void * p);
+void *__c_malloc(size_t s);
+
+void __c_free(void *p);
 
 #endif /* _C_MEMORY_H */
